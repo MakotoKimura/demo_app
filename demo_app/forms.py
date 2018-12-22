@@ -1,5 +1,7 @@
 from django import forms
 from .models import Customers
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from django.forms.widgets import NumberInput
 
@@ -24,3 +26,12 @@ class InputForm(forms.ModelForm):
         'last_name':forms.TextInput(attrs={'placeholder':'last_name'}),
         'first_name':forms.TextInput(attrs={'placeholder':'first_name'}),
         }
+
+class SignupForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True, help_text='名前を入力')
+    last_name = forms.CharField(max_length=30, required=True, help_text='`名字`を入力')
+    email = forms.EmailField(max_length=254, help_text='有効なE-Mailアドレス')
+
+    class Meta:
+        model = User
+        fields = ('username', 'last_name', 'first_name', 'email', 'password1', 'password2')
