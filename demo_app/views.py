@@ -9,8 +9,8 @@ import json
 import pandas as pd
 
 # globalに置いておくと、処理が軽くて済む
-# loaded_model = joblib.load('/home/mktkmr4/mktkmr4.pythonanywhere.com/demo_app/demo_model.pkl')
-loaded_model = joblib.load('demo_app/demo_model.pkl')
+loaded_model = joblib.load('/home/mktkmr4/mktkmr4.pythonanywhere.com/demo_app/demo_model.pkl')
+# loaded_model = joblib.load('demo_app/demo_model.pkl')
 
 # Create your views here.
 @login_required
